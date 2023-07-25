@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var wordToGuess: String
 
     // how many times have we already guessed?
-    private var guessCount = 3
+    private var guessCount = 0
 
     // the views in the UI
     private lateinit var input: EditText
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.guess2check),
             findViewById(R.id.guess3check)
         )
-
+        guessButton = findViewById(R.id.guessButton)
         // Set up correct answer
         wordToGuess = FourLetterWordList.getRandomFourLetterWord()
         correctWordText.visibility = View.GONE // Hide the correct answer!
@@ -61,10 +61,8 @@ class MainActivity : AppCompatActivity() {
         input.clearFocus()
 
         // Add guess to board
-        guessTextArray[guessCount].text = "guess_input"
+        guessTextArray[guessCount].text = guess_input
         guessCheckArray[guessCount].text = checkGuess(guess_input)
-        guessCount++
-        guessCount++
         guessCount++
 
         // Check if the game ended
